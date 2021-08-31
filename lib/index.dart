@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:test/config/constant.dart';
 
 class Index extends StatelessWidget {
   @override
@@ -40,14 +41,15 @@ class Index extends StatelessWidget {
             ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       textStyle: TextStyle(
-                        fontSize: 20,
+                        fontSize: SFornt,
                       ),
-                      primary: Colors.amber[900],
+                      primary: PColor,
                       padding: EdgeInsets.all(20.0),
                       shape: StadiumBorder()),
                   child: Text('LOGIN'),
                   onPressed: () {
                     print("LOGIN!!");
+                    Navigator.pushNamed(context,"login");
                   },
                 ),
                 SizedBox(
@@ -56,14 +58,15 @@ class Index extends StatelessWidget {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       textStyle: TextStyle(
-                        fontSize: 20,
+                        fontSize: SFornt,
                       ),
-                      primary: Colors.amber[900],
+                      primary: PColor,
                       padding: EdgeInsets.all(20.0),
                       shape: StadiumBorder()),
                   child: Text('SIGNUP'),
                   onPressed: () {
                     print("SIGNUP!!");
+                    Navigator.pushNamed(context,"register");
                   },
                 ),
           ],
