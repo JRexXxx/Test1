@@ -1,4 +1,4 @@
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -6,7 +6,6 @@ import 'package:path/path.dart';
 import 'package:test/model/activity.dart';
 
 class Dasboard extends StatefulWidget {
-  
   const Dasboard({Key? key}) : super(key: key);
 
   @override
@@ -31,27 +30,60 @@ class _DasboardState extends State<Dasboard> {
     var response = await http.get(url);
     // การวาดหน้าจอใหม่
     setState(() {
-       // การแปลงข้อมูล
-     data = welcomeFromJson(response.body);
-    // การเข้าถึงข้ออมูล
-    print(data.activity);
-    print(data.type);
-    print(data.participants);
-    print(data.price);
+      // การแปลงข้อมูล
+      data = welcomeFromJson(response.body);
+      // การเข้าถึงข้ออมูล
+      print(data.activity);
+      print(data.type);
+      print(data.participants);
+      print(data.price);
     });
     // การแสดง สถานะโค๊ด
     print(response.statusCode);
     // การแสดง ข้อมูล
     print(response.body);
-   
-
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                child: Text("Menu Package"),
+                decoration: BoxDecoration(
+                  color: Colors.greenAccent,
+                ),
+              ),
+              ListTile(
+                title: Text("Video",style: TextStyle(fontSize: 24),),
+                leading: Icon(Icons.video_call),
+                onTap: (){
+                  print("Menu Video");
+                  Navigator.pushNamed(context,"video");
+                },
+              ),
+              ListTile(
+                title: Text("Image",style: TextStyle(fontSize: 24),),
+                leading: Icon(Icons.image),
+                onTap: (){
+                  print("Menu Image");
+                  Navigator.pushNamed(context,"picture");
+                },
+              ),
+              ListTile(
+                title: Text("Geolocation",style: TextStyle(fontSize: 24),),
+                leading: Icon(Icons.location_city),
+                onTap: (){
+                  print("Menu location");
+                  Navigator.pushNamed(context,"location");
+                },
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -63,12 +95,13 @@ class _DasboardState extends State<Dasboard> {
           ),
         ),
         body: Container(
-          child: Column(children: [
-            Text(data?.activity ?? "กำลังโหลด"),
-            Text(data?.type ?? ""),
-            Text('${data?.participants ?? ""}'),
-            Text('${data?.price ?? ""}'),
-          ],
+          child: Column(
+            children: [
+              Text(data?.activity ?? "กำลังโหลด"),
+              Text(data?.type ?? ""),
+              Text('${data?.participants ?? ""}'),
+              Text('${data?.price ?? ""}'),
+            ],
           ),
         ),
       ),
