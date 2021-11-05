@@ -1,5 +1,6 @@
 //import 'dart:html';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
@@ -44,6 +45,9 @@ class _DasboardState extends State<Dasboard> {
     print(response.body);
   }
 
+Future<void> logout ()async{
+  await FirebaseAuth.instance.signOut();
+}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -79,6 +83,25 @@ class _DasboardState extends State<Dasboard> {
                 onTap: (){
                   print("Menu location");
                   Navigator.pushNamed(context,"location");
+                },
+              ),
+              ListTile(
+                title: Text("Store",style: TextStyle(fontSize: 24),),
+                leading: Icon(Icons.store),
+                onTap: (){
+                  print("Menu Store");
+                  Navigator.pushNamed(context,"store");
+                },
+              ),
+              ListTile(
+                title: Text("Logout",style: TextStyle(fontSize: 24),),
+                leading: Icon(Icons.logout_sharp),
+                onTap: (){
+                  print("Menu Logout");
+                  logout();
+                  Navigator.of(context).pop();
+                  Navigator.pushNamed(context, "login");
+                  
                 },
               ),
             ],
