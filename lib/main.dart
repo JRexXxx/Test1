@@ -2,12 +2,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:test/config/constant.dart';
 import 'package:test/index.dart';
+import 'package:test/screen/Bg.dart';
+import 'package:test/screen/Manutest.dart';
 import 'package:test/screen/dashboard.dart';
 import 'package:test/screen/firebaselogin.dart';
 import 'package:test/screen/firebaseregister.dart';
 import 'package:test/screen/location.dart';
 import 'package:test/screen/login.dart';
 import 'package:test/screen/picture.dart';
+import 'package:test/screen/register.dart';
 import 'package:test/screen/store.dart';
 //import 'package:test/screen/register.dart';
 import 'package:test/screen/video.dart';
@@ -31,14 +34,15 @@ class Myapp extends StatelessWidget {
         secondaryHeaderColor: SColor),
         routes: {
           "login":(context)=>FirebaseLogin(),
-          "register":(context)=>FirebaseRegister(),
+          "register":(context)=>MyApp(),
           "dashboard":(context)=>Dasboard(),
           "video":(context)=>Video(),
           "location":(context)=>Location(),
           "picture":(context)=>Picture(),
           "store":(context)=>Store(),
+          "test":(context)=>BGPage(),
         },
-      home: Index(),
+      home: BGPage(),
     );
   }
 }
