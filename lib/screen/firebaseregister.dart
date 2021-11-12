@@ -10,7 +10,7 @@ class FirebaseRegister extends StatefulWidget {
   @override
   _FirbaseRegisterState createState() => _FirbaseRegisterState();
 }
-
+final logo = 'https://logos-world.net/wp-content/uploads/2020/12/Dota-2-Logo.png';
 class _FirbaseRegisterState extends State<FirebaseRegister> {
   var name, email, password;
   final formkey = GlobalKey<FormState>();
@@ -26,10 +26,13 @@ class _FirbaseRegisterState extends State<FirebaseRegister> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+              SizedBox(height: 20,),
+                Image.network(logo),
                 txtName(),
                 txtEmail(),
                 txtPassword(),
-                btnSubmit(),
+                SizedBox(height: 20,),
+                btnSingup(),
               ],
             ),
           ),
@@ -47,8 +50,8 @@ class _FirbaseRegisterState extends State<FirebaseRegister> {
           fontSize: 24,
         ),
         decoration: InputDecoration(
-          labelText: 'Name:',
-          icon: Icon(Icons.approval),
+          labelText: 'Username:',
+          icon: Icon(Icons.people_sharp),
           hintText: 'Input your name',
         ),
         validator: (val) {
@@ -123,9 +126,32 @@ class _FirbaseRegisterState extends State<FirebaseRegister> {
       },
     );
   }
+Widget btnSingup() {
+    return  Center(
+          child:  RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        side: BorderSide(color: PColor)),
+                    onPressed: () {
+                     if(formkey.currentState!.validate()){
+                       formkey.currentState!.save();
+                       registerFirebase();
+                     }
+                     
+                    },
+                    color: PColor,
+                    textColor: Colors.white,
+                    child: Text("singin".toUpperCase(),
+                        style: TextStyle(fontSize: 16)),
+                  ),
+        );
+  }
 
   Future<void> registerFirebase() async {
     
+   /*  if(formkey.currentState!.validate()){
+          formkey.currentState!.save();
+          registerFirebase();*/
 
     try{FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password)
     .then((response) {

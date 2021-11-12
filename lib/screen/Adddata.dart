@@ -11,12 +11,14 @@ class AddData extends StatefulWidget {
 
 class _AddDataState extends State<AddData> {
   // ประกาศตัวแปรสำหรับการเพิ่มสินค้า
-  String? name, price, status;
+  String? name, id, mmr,role;
   final formKey = GlobalKey<FormState>();
-  final dbfirebase = FirebaseDatabase.instance.reference().child("store");
+  final dbfirebase = FirebaseDatabase.instance.reference().child("Player");
+  String sta="Pending";
+  
 
   Future<void> createData() async{
-    dbfirebase.push().set({"name":name,"price":price,"status":status})
+    dbfirebase.push().set({"Name":name,"Stem ID":id,"MMR":mmr,"Role":role,"Status":sta})
     .then((value)=>print("success"))
     .catchError((onError){
       print(onError);
@@ -34,8 +36,9 @@ class _AddDataState extends State<AddData> {
             child: Column(
               children: [
                 txtName(),
-                txtPrice(),
-                txtStatus(),
+                txtId(),
+                txtMMR(),
+                txtrole(),
                 btnSubmit(),
               ],
             ),
@@ -54,16 +57,14 @@ class _AddDataState extends State<AddData> {
           color: PColor,
         ),
         decoration: InputDecoration(
-          labelText: 'Product:',
-          icon: Icon(Icons.production_quantity_limits),
-          hintText: 'Input your product name',
+          labelText: 'Name:',
+          icon: Icon(Icons.people_sharp),
+          hintText: 'Input your Name',
         ),
         validator: (value) {
           if (value!.isEmpty) {
             return 'กรุณาใส่ข้อมูลด้วย';
-          } else if (value.length < 2) {
-            return 'กรุณาใส่ข้อมูลมากกว่า 2 ตัวอักษร';
-          }
+          } 
         },
         onSaved: (value) {
           name = value;
@@ -72,29 +73,7 @@ class _AddDataState extends State<AddData> {
     );
   }
 
-  Widget txtPrice() {
-    return Container(
-      margin: EdgeInsets.fromLTRB(15, 20, 15, 20),
-      child: TextFormField(
-        keyboardType: TextInputType.number,
-        style: TextStyle(
-          fontSize: 24,
-          color: PColor,
-        ),
-        decoration: InputDecoration(
-          labelText: 'ราคา:',
-          icon: Icon(Icons.price_check),
-          hintText: 'ใส่ราคาสินค้า',
-        ),
-        validator: (value) {},
-        onSaved: (value) {
-          price = value;
-        },
-      ),
-    );
-  }
-
-  Widget txtStatus() {
+  Widget txtId() {
     return Container(
       margin: EdgeInsets.fromLTRB(15, 20, 15, 20),
       child: TextFormField(
@@ -103,31 +82,99 @@ class _AddDataState extends State<AddData> {
           color: PColor,
         ),
         decoration: InputDecoration(
-          labelText: 'คำอธิบาย:',
-          icon: Icon(Icons.description),
-          hintText: 'ใส่คำบรรบายสินค้า',
+          labelText: 'ID Steam:',
+          icon: Icon(Icons.keyboard_alt_sharp),
+          hintText: 'Input your ID',
         ),
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'กรุณาใส่ข้อมูลด้วย';
+          } else if (value.length < 8) {
+            return 'กรุณาใส่ข้อมูลมากกว่า 8 ตัวอักษร';
+          }
+        },
         onSaved: (value) {
-          status = value;
+          id = value;
         },
       ),
     );
   }
 
-  Widget btnSubmit() => ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          primary: PColor,
+  Widget txtMMR() {
+    return Container(
+      margin: EdgeInsets.fromLTRB(15, 20, 15, 20),
+      child: TextFormField(
+        style: TextStyle(
+          fontSize: 24,
+          color: PColor,
         ),
-        onPressed: () {
-          if (formKey.currentState!.validate()) {
+        decoration: InputDecoration(
+          labelText: 'MMR:',
+          icon: Icon(Icons.format_list_numbered),
+          hintText: 'Input your MMR',
+        ),
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'กรุณาใส่ข้อมูลด้วย';
+          } 
+        },
+        onSaved: (value) {
+          mmr = value;
+        },
+      ),
+    );
+  }
+
+
+
+  Widget txtrole() {
+    return Container(
+      margin: EdgeInsets.fromLTRB(15, 20, 15, 20),
+      child: TextFormField(
+        style: TextStyle(
+          fontSize: 24,
+          color: PColor,
+        ),
+        decoration: InputDecoration(
+          labelText: 'Role:',
+          icon: Icon(Icons.star_outline_sharp),
+          hintText: 'Input your Role',
+        ),
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'กรุณาใส่ข้อมูลด้วย';
+          } 
+        },
+        onSaved: (value) {
+          role = value;
+        },
+      ),
+    );
+  }
+
+
+  Widget btnSubmit() => RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        side: BorderSide(color: PColor)),
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
             formKey.currentState!.save();
             print(name);
-            print(price);
-            print(status);
+            print(id);
+            print(mmr);
+            print(role);
             createData();
             formKey.currentState!.reset();
           }
-        },
-        child: Text('Save'),
-      );
+                    },
+                    color: PColor,
+                    textColor: Colors.white,
+                    child: Text("Submit".toUpperCase(),
+                        style: TextStyle(fontSize: 16)),
+                  );
+
+
+            
+
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test/config/constant.dart';
 
 class BGPage extends StatefulWidget {
   const BGPage({Key? key}) : super(key: key);
@@ -10,14 +11,11 @@ class BGPage extends StatefulWidget {
 class _BGPageState extends State<BGPage> {
   @override
   Widget build(BuildContext context) {
-final urlImage = 'https://wallpapercave.com/wp/wp3591724.jpg';
-final logo = 'https://logos-world.net/wp-content/uploads/2020/12/Dota-2-Logo.png';
+final urlImage = 'https://cdn.discordapp.com/attachments/601439632231759895/908709784746876938/BacG.jpg';
+//final logo = 'asset/image/XD.png';
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("DOTA 2"),
-        centerTitle: true,
-      ),
+      
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(image: NetworkImage(urlImage),
@@ -32,7 +30,8 @@ final logo = 'https://logos-world.net/wp-content/uploads/2020/12/Dota-2-Logo.png
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children:[ 
-            Image.network(logo),
+            //Image.asset(logo),
+            SizedBox(height: 10,),
             Text("",style:TextStyle(color: Colors.white,fontSize: 40,),),
             btnLogin(),
             Text("",style:TextStyle(color: Colors.white,fontSize: 40,),),
@@ -49,37 +48,35 @@ final logo = 'https://logos-world.net/wp-content/uploads/2020/12/Dota-2-Logo.png
   }
   Widget btnLogin() {
     return  Center(
-          child: GestureDetector(
-            onTap: ()=>{
-               Navigator.pushNamed(context,"login")
-            },
-            child: Container(
-              padding: EdgeInsets.all(20.0),
-              decoration: BoxDecoration(
-                border: Border.all(width: 1.0,color: Colors.blue),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Text('     Login     ', style: TextStyle(color: Colors.blue,fontSize: 20),),
-            ),
-          )
+          child:  RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        side: BorderSide(color: PColor)),
+                    onPressed: () {
+                      Navigator.pushNamed(context, "login");
+                    },
+                    color: PColor,
+                    textColor: Colors.white,
+                    child: Text("login".toUpperCase(),
+                        style: TextStyle(fontSize: 16)),
+                  ),
         );
   }
 
   Widget btnSingup() {
     return  Center(
-          child: GestureDetector(
-            onTap: ()=>{
-              Navigator.pushNamed(context,"register")
-            },
-            child: Container(
-              padding: EdgeInsets.all(20.0),
-              decoration: BoxDecoration(
-                border: Border.all(width: 1.0,color: Colors.blue),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Text('     SingUp     ', style: TextStyle(color: Colors.blue,fontSize: 20),),
-            ),
-          )
+          child:  RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        side: BorderSide(color: PColor)),
+                    onPressed: () {
+                     Navigator.pushNamed(context, "register");
+                    },
+                    color: PColor,
+                    textColor: Colors.white,
+                    child: Text("singin".toUpperCase(),
+                        style: TextStyle(fontSize: 16)),
+                  ),
         );
   }
 }

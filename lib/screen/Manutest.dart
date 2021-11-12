@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test/screen/News.dart';
 
 void main() => runApp(const MyApp());
 
@@ -36,15 +37,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       style: optionStyle,
     ),
     Text(
-      'Index 1: Business',
+      'Index 1: News and Patch',
+      style: optionStyle,
+      
+    ),
+    Text(
+      'Index 2: Hero',
       style: optionStyle,
     ),
     Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Settings',
+      'Index 3: Profile and Setting',
       style: optionStyle,
     ),
   ];
@@ -59,10 +61,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
+        title: const Text('Dota 2'),
       ),
-      body: Center(
+      body: Center( 
         child: _widgetOptions.elementAt(_selectedIndex),
+        
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -70,20 +73,21 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             icon: Icon(Icons.home),
             label: 'Home',
             backgroundColor: Colors.red,
+            
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.messenger_sharp),
+            label: 'News',
             backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.category_sharp),
+            label: 'Hero',
             backgroundColor: Colors.purple,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.people_alt_sharp),
+            label: 'Profile',
             backgroundColor: Colors.pink,
           ),
         ],
@@ -93,4 +97,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       ),
     );
   }
+
+  
 }

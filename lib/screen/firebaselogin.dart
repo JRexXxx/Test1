@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:test/config/constant.dart';
+import 'package:test/screen/Manu.dart';
+import 'package:test/screen/Manutest.dart';
 import 'package:test/screen/dashboard.dart';
 
 class FirebaseLogin extends StatefulWidget {
@@ -21,7 +23,7 @@ class _FirebaseLoginState extends State<FirebaseLogin> {
           .then((value) {
         print("success");
         MaterialPageRoute materialPageRoute = MaterialPageRoute(
-            builder: (BuildContext context) => Dasboard());
+            builder: (BuildContext context) => Muna());
         Navigator.of(context).pushAndRemoveUntil(
             materialPageRoute, (Route<dynamic> route) => false);
       }).catchError((onError){
@@ -31,11 +33,15 @@ class _FirebaseLoginState extends State<FirebaseLogin> {
       print(e);
     }
   }
-
+final logo = 'https://logos-world.net/wp-content/uploads/2020/12/Dota-2-Logo.png';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
+    return Scaffold(appBar: AppBar(
+      centerTitle: true,
+      title: Text('Dota 2 TeamFinder'),
+      leading: BackButton(),
+    ),
       body: Form(
         key: formKey,
         child: Container(
@@ -47,8 +53,9 @@ class _FirebaseLoginState extends State<FirebaseLogin> {
                 SizedBox(
                   height: size.height * 0.03,
                 ),
+                Image.network(logo),
                 Text(
-                  'KMUTNB Login Firebase',
+                  'Dota 2 Login',
                   style: TextStyle(fontSize: 25, color: PColor),
                 ),
                 SizedBox(

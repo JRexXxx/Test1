@@ -45,7 +45,8 @@ class _DasboardState extends State<Dasboard> {
     print(response.body);
   }
 
-Future<void> logout ()async{
+Future<void> logout ()async
+{
   await FirebaseAuth.instance.signOut();
 }
   @override
