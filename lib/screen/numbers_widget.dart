@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NumbersWidget extends StatelessWidget {
   @override
@@ -30,12 +31,12 @@ class NumbersWidget extends StatelessWidget {
       children: <Widget>[
         Text(
           value,
-          style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),
+          style: GoogleFonts.sniglet(fontSize: 25,fontWeight: FontWeight.w500),
         ),
         SizedBox(height: 2),
         Text(
           text,
-          style: TextStyle(fontWeight: FontWeight.bold,),
+          style:GoogleFonts.sniglet(fontWeight: FontWeight.w500),
         ),
       ],
 

@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test/config/constant.dart';
 
 class AddData extends StatefulWidget {
@@ -15,6 +16,7 @@ class _AddDataState extends State<AddData> {
   final formKey = GlobalKey<FormState>();
   final dbfirebase = FirebaseDatabase.instance.reference().child("Player");
   String sta="Pending";
+  String sta1="Pending";
   
 
   Future<void> createData() async{
@@ -25,6 +27,7 @@ class _AddDataState extends State<AddData> {
     });
 
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +46,7 @@ class _AddDataState extends State<AddData> {
               ],
             ),
           ),
+          
         ),
       ),
     );
@@ -52,10 +56,7 @@ class _AddDataState extends State<AddData> {
     return Container(
       margin: EdgeInsets.fromLTRB(15, 20, 15, 20),
       child: TextFormField(
-        style: TextStyle(
-          fontSize: 24,
-          color: PColor,
-        ),
+        style: GoogleFonts.sniglet(fontSize: 24,fontWeight: FontWeight.w500),
         decoration: InputDecoration(
           labelText: 'Name:',
           icon: Icon(Icons.people_sharp),
@@ -68,6 +69,7 @@ class _AddDataState extends State<AddData> {
         },
         onSaved: (value) {
           name = value;
+         
         },
       ),
     );
@@ -77,10 +79,7 @@ class _AddDataState extends State<AddData> {
     return Container(
       margin: EdgeInsets.fromLTRB(15, 20, 15, 20),
       child: TextFormField(
-        style: TextStyle(
-          fontSize: 24,
-          color: PColor,
-        ),
+        style:GoogleFonts.sniglet(fontSize: 24,fontWeight: FontWeight.w500),
         decoration: InputDecoration(
           labelText: 'ID Steam:',
           icon: Icon(Icons.keyboard_alt_sharp),
@@ -95,6 +94,7 @@ class _AddDataState extends State<AddData> {
         },
         onSaved: (value) {
           id = value;
+          
         },
       ),
     );
@@ -104,10 +104,7 @@ class _AddDataState extends State<AddData> {
     return Container(
       margin: EdgeInsets.fromLTRB(15, 20, 15, 20),
       child: TextFormField(
-        style: TextStyle(
-          fontSize: 24,
-          color: PColor,
-        ),
+        style: GoogleFonts.sniglet(fontSize: 24,fontWeight: FontWeight.w500),
         decoration: InputDecoration(
           labelText: 'MMR:',
           icon: Icon(Icons.format_list_numbered),
@@ -120,6 +117,7 @@ class _AddDataState extends State<AddData> {
         },
         onSaved: (value) {
           mmr = value;
+          
         },
       ),
     );
@@ -131,10 +129,7 @@ class _AddDataState extends State<AddData> {
     return Container(
       margin: EdgeInsets.fromLTRB(15, 20, 15, 20),
       child: TextFormField(
-        style: TextStyle(
-          fontSize: 24,
-          color: PColor,
-        ),
+        style: GoogleFonts.sniglet(fontSize: 24,fontWeight: FontWeight.w500),
         decoration: InputDecoration(
           labelText: 'Role:',
           icon: Icon(Icons.star_outline_sharp),
@@ -147,6 +142,7 @@ class _AddDataState extends State<AddData> {
         },
         onSaved: (value) {
           role = value;
+     
         },
       ),
     );
@@ -171,7 +167,7 @@ class _AddDataState extends State<AddData> {
                     color: PColor,
                     textColor: Colors.white,
                     child: Text("Submit".toUpperCase(),
-                        style: TextStyle(fontSize: 16)),
+                        style:GoogleFonts.sniglet(fontSize: 16,fontWeight: FontWeight.w500),),
                   );
 
 

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
 import 'package:test/config/constant.dart';
 import 'package:test/screen/firebaselogin.dart';
@@ -19,7 +20,8 @@ class _FirbaseRegisterState extends State<FirebaseRegister> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Sign Up"),
+          title: Text("Sign Up",
+          style: GoogleFonts.sniglet(fontSize: 20,fontWeight: FontWeight.w500),),
         ),
         body: Form(
           key: formkey,
@@ -45,10 +47,7 @@ class _FirbaseRegisterState extends State<FirebaseRegister> {
     return Container(
       margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
       child: TextFormField(
-        style: TextStyle(
-          color: SColor,
-          fontSize: 24,
-        ),
+        style: GoogleFonts.sniglet(fontSize: 24,fontWeight: FontWeight.w500,color: Colors.black),
         decoration: InputDecoration(
           labelText: 'Username:',
           icon: Icon(Icons.people_sharp),
@@ -70,10 +69,7 @@ class _FirbaseRegisterState extends State<FirebaseRegister> {
     return Container(
       margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
       child: TextFormField(
-        style: TextStyle(
-          color: SColor,
-          fontSize: 24,
-        ),
+        style: GoogleFonts.sniglet(fontSize: 24,fontWeight: FontWeight.w500,color: Colors.black),
         decoration: InputDecoration(
           labelText: 'Email:',
           icon: Icon(Icons.email),
@@ -98,10 +94,7 @@ class _FirbaseRegisterState extends State<FirebaseRegister> {
     return Container(
       margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
       child: TextFormField(
-        style: TextStyle(
-          color: SColor,
-          fontSize: 24,
-        ),
+        style: GoogleFonts.sniglet(fontSize: 24,fontWeight: FontWeight.w500,color: Colors.black),
         decoration: InputDecoration(
           labelText: 'Password:',
           icon: Icon(Icons.lock),
@@ -142,7 +135,7 @@ Widget btnSingup() {
                     color: PColor,
                     textColor: Colors.white,
                     child: Text("singin".toUpperCase(),
-                        style: TextStyle(fontSize: 16)),
+                        style: GoogleFonts.sniglet(fontSize: 20,fontWeight: FontWeight.w500,),),
                   ),
         );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test/config/constant.dart';
 
 class BGPage extends StatefulWidget {
@@ -58,7 +59,9 @@ final urlImage = 'https://cdn.discordapp.com/attachments/601439632231759895/9087
                     color: PColor,
                     textColor: Colors.white,
                     child: Text("login".toUpperCase(),
-                        style: TextStyle(fontSize: 16)),
+                        style: GoogleFonts.sniglet(fontSize: 20,fontWeight: FontWeight.w500),
+                        ),
+
                   ),
         );
   }
@@ -75,7 +78,7 @@ final urlImage = 'https://cdn.discordapp.com/attachments/601439632231759895/9087
                     color: PColor,
                     textColor: Colors.white,
                     child: Text("singin".toUpperCase(),
-                        style: TextStyle(fontSize: 16)),
+                        style: GoogleFonts.sniglet(fontSize: 20,fontWeight: FontWeight.w500),),
                   ),
         );
   }

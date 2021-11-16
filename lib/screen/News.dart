@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:path/path.dart';
 import 'package:test/config/constant.dart';
 import 'package:url_launcher/link.dart';
@@ -37,7 +38,7 @@ class _NewsState extends State<News> {
           children: [
             buildCard(
               'Dota 2 1v1 - Shadow Fiend Arcana Cup',
-              'https://cdn.epulze.com/cdn-cgi/image/width=950/cms/1202dd51-434a-4b84-aa77-e6e07f490b5b-shadowfiend_arcana_cover.png',
+              'https://cutewallpaper.org/21/shadow-fiend-arcana/Dota-2-1v1-SF-Arcana-Cup-Sunday-tournament-epulze.com.png',
               'The tournament is fully automated, so make sure to have the latest patch downloaded before the tournament starts. You are required to play on the same Steam account that you are synced with your Epulze account.',
               
             ),
@@ -53,12 +54,12 @@ class _NewsState extends State<News> {
                     color: PColor,
                     textColor: Colors.white,
                     child: Text("Open Link",
-                        style: TextStyle(fontSize: 16)),
+                        style: GoogleFonts.sniglet(fontSize: 16,fontWeight: FontWeight.w500)),
                   ),
               ),
                buildCard(
                 'LuponWXC Cup Season 9',
-                'https://cdn.epulze.com/cdn-cgi/image/width=950/cms/4292bb9a-3f5a-4b33-9658-6b135dfd054d-luponwxcs9_cover-jpg',
+                'https://i.ytimg.com/vi/dN7G-0fIl2A/maxresdefault.jpg',
                 'The LuponWXC Cup is back with its 9th season! In partnership with Kumu and Epulze, amateur #Dota2 teams from around South East Asia will face off in a B01 and BO3 battle royale for a piece of the 40k PHP prize pool and a chance at competing against amateur teams.',
                 ),
                 Link(
@@ -73,7 +74,7 @@ class _NewsState extends State<News> {
                     color: PColor,
                     textColor: Colors.white,
                     child: Text("Open Link",
-                        style: TextStyle(fontSize: 16)),
+                        style: GoogleFonts.sniglet(fontSize: 16,fontWeight: FontWeight.w500)),
                   ),
               ),
             buildCard(
@@ -94,7 +95,7 @@ class _NewsState extends State<News> {
                     color: PColor,
                     textColor: Colors.white,
                     child: Text("Open Link",
-                        style: TextStyle(fontSize: 16)),
+                        style: GoogleFonts.sniglet(fontSize: 16,fontWeight: FontWeight.w500)),
                   ),
               ),
               buildCard(
@@ -115,7 +116,7 @@ class _NewsState extends State<News> {
                     color: PColor,
                     textColor: Colors.white,
                     child: Text("Open Link",
-                        style: TextStyle(fontSize: 16)),
+                        style: GoogleFonts.sniglet(fontSize: 16,fontWeight: FontWeight.w500)),
                   ),
               ),
             buildCard(
@@ -135,7 +136,7 @@ class _NewsState extends State<News> {
                     color: PColor,
                     textColor: Colors.white,
                     child: Text("Open Link",
-                        style: TextStyle(fontSize: 16)),
+                        style: GoogleFonts.sniglet(fontSize: 16,fontWeight: FontWeight.w500)),
                   ),
               ),
            
@@ -166,21 +167,18 @@ class _NewsState extends State<News> {
                     ),
                     header: Text(
                       title,
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: GoogleFonts.sniglet(fontSize: 24,fontWeight: FontWeight.w500)
                     ),
                     collapsed: Text(
                       loremIpsum,
-                      style: TextStyle(fontSize: 18),
+                      style: GoogleFonts.sniglet(fontSize: 18,fontWeight: FontWeight.w500),
                       softWrap: true,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                     ),
                     expanded: Text(
                       List.generate(1, (_) => loremIpsum).join('\n\n'),
-                      style: TextStyle(fontSize: 18),
+                      style: GoogleFonts.sniglet(fontSize: 18,fontWeight: FontWeight.w500),
                     ),
                     
                     builder: (_, collapsed, expanded) => Padding(

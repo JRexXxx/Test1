@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test/screen/Adddata.dart';
 import 'package:test/screen/Str_1.dart';
+import 'package:test/screen/bord.dart';
 import 'package:test/screen/str.dart';
 import 'package:test/screen/viewdata.dart';
 
@@ -18,6 +20,7 @@ int theriGroupVakue=0;
 final Map<int,Widget> logoWidgets = const<int,Widget>{
   0:Text("FindTeam"),
   1:Text("History"),
+  2:Text("Board")
 };
 
 
@@ -29,6 +32,7 @@ class _TopBarState extends State<TopBar> {
 List<Widget> bodies =[
   AddData(),
   ViewData(),
+  BordData(),
 ];
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test/config/constant.dart';
 import 'package:test/screen/Manu.dart';
 import 'package:test/screen/Profile.dart';
@@ -18,15 +19,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Future<bool?> showWarning(BuildContext context)async => showDialog<bool>(
     context:context,
     builder:(context)=> AlertDialog(
-      title: Text('Discard Changes?'),
-      content: Text('Changes on this page will not be saved.'),
+      title: Text('Discard Changes?',style: GoogleFonts.sniglet(fontWeight: FontWeight.w500),),
+      content: Text('Changes on this page will not be saved.',style: GoogleFonts.sniglet(fontWeight: FontWeight.w500),),
       actions: [
         ElevatedButton(
-          child: Text('Cancel'),
+          child: Text('Cancel',style: GoogleFonts.sniglet(fontWeight: FontWeight.w500),),
           onPressed: () =>Navigator.pop(context,false),
         ),
         ElevatedButton(
-          child: Text('Discard'),
+          child: Text('Discard',style: GoogleFonts.sniglet(fontWeight: FontWeight.w500),),
           onPressed: () =>Navigator.pop(context,true),
         ),
       ],
@@ -48,6 +49,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           padding: EdgeInsets.symmetric(horizontal: 32),
           physics: BouncingScrollPhysics(),
           children: [
+            
             SizedBox(height: 25,),
             ProfileWidget(
               imagePath: user.imagePath,
@@ -91,7 +93,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     color: PColor,
                     textColor: Colors.white,
                     child: Text("edit".toUpperCase(),
-                        style: TextStyle(fontSize: 16)),
+                        style: GoogleFonts.sniglet(fontWeight: FontWeight.w500,fontSize: 16),),
                   );
 }
 

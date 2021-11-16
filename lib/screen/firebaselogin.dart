@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test/config/constant.dart';
 import 'package:test/screen/Manu.dart';
 import 'package:test/screen/Manutest.dart';
@@ -39,7 +42,8 @@ final logo = 'https://logos-world.net/wp-content/uploads/2020/12/Dota-2-Logo.png
     Size size = MediaQuery.of(context).size;
     return Scaffold(appBar: AppBar(
       centerTitle: true,
-      title: Text('Dota 2 TeamFinder'),
+      title: Text('Dota 2 TeamFinder',
+      style: GoogleFonts.sniglet(fontSize: 20,fontWeight: FontWeight.w500),),
       leading: BackButton(),
     ),
       body: Form(
@@ -54,9 +58,10 @@ final logo = 'https://logos-world.net/wp-content/uploads/2020/12/Dota-2-Logo.png
                   height: size.height * 0.03,
                 ),
                 Image.network(logo),
+                SizedBox(height: 20,),
                 Text(
                   'Dota 2 Login',
-                  style: TextStyle(fontSize: 25, color: PColor),
+                  style: GoogleFonts.sniglet(fontSize: 25,fontWeight: FontWeight.w500,color: PColor),
                 ),
                 SizedBox(
                   height: size.height * 0.04,
@@ -64,7 +69,7 @@ final logo = 'https://logos-world.net/wp-content/uploads/2020/12/Dota-2-Logo.png
                 Container(
                   width: size.width * 0.9,
                   child: TextFormField(
-                    style: TextStyle(color: Colors.black, fontSize: 20),
+                    style: GoogleFonts.sniglet(fontSize: 20,fontWeight: FontWeight.w500,color: Colors.black),
                     decoration: InputDecoration(
                       icon: Icon(
                         Icons.alternate_email,
@@ -84,7 +89,7 @@ final logo = 'https://logos-world.net/wp-content/uploads/2020/12/Dota-2-Logo.png
                 Container(
                   width: size.width * 0.9,
                   child: TextFormField(
-                    style: TextStyle(color: Colors.black, fontSize: 20),
+                    style: GoogleFonts.sniglet(fontSize: 20,fontWeight: FontWeight.w500,color: Colors.black),
                     obscureText: true,
                     decoration: InputDecoration(
                       icon: Icon(
@@ -117,19 +122,19 @@ final logo = 'https://logos-world.net/wp-content/uploads/2020/12/Dota-2-Logo.png
                     color: PColor,
                     textColor: Colors.white,
                     child: Text("login".toUpperCase(),
-                        style: TextStyle(fontSize: 16)),
+                        style: GoogleFonts.sniglet(fontSize: 20,fontWeight: FontWeight.w500)),
                   ),
                 ),
                 SizedBox(
                   height: size.height * 0.05,
                 ),
-                Text(
+                /*Text(
                   'All rights reserved',
                   style: TextStyle(
                     fontSize: 16,
                     color: SColor,
                   ),
-                ),
+                ),*/
               ],
             ),
           ),

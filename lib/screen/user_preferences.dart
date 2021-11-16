@@ -1,3 +1,4 @@
+import 'package:path/path.dart';
 import 'package:test/screen/user.dart';
 
 class UserPreferences {
@@ -7,5 +8,6 @@ static const myUser = Usert(
   email: 'jame.ast@hotmail.com',
   about: 'My name is Jrex I am 22 years old I live in ChaiNat SteamProfile JRex.My hero pool are Axe,Witchdoctor,Spectre ',
   isDarkMode: false,
+
 );
 }

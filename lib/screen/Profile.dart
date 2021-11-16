@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:path/path.dart';
 import 'package:test/config/constant.dart';
 import 'package:test/screen/appbar_widget.dart';
@@ -60,8 +61,8 @@ Future<void> logout ()async
                     },
                     color: PColor,
                     textColor: Colors.white,
-                    child: Text("login".toUpperCase(),
-                        style: TextStyle(fontSize: 16)),
+                    child: Text("logout".toUpperCase(),
+                        style: GoogleFonts.sniglet(fontSize: 16,fontWeight: FontWeight.w500)),
                   ),),
           const SizedBox(
             height: 24,
@@ -82,15 +83,15 @@ Future<void> logout ()async
         children: [
           Text(
             user.name,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            style: GoogleFonts.sniglet(fontSize: 24,fontWeight: FontWeight.w500),
           ),
           const SizedBox(
             height: 4,
           ),
           Text(
             user.email,
-            style: TextStyle(color: Colors.grey),
-          )
+            style: GoogleFonts.sniglet(fontSize: 18,fontWeight: FontWeight.w500,color:Colors.grey,),
+          ),
         ],
       );
 
@@ -109,14 +110,14 @@ Future<void> logout ()async
           children: [
             Text(
               'About',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: GoogleFonts.sniglet(fontSize: 24,fontWeight: FontWeight.w500),
             ),
             const SizedBox(
               height: 16,
             ),
             Text(
               user.about,
-              style: TextStyle(fontSize: 16, height: 1.4),
+              style: GoogleFonts.sniglet(fontSize: 16,fontWeight: FontWeight.w500,height: 1.4),
             ),
           ],
         ),
